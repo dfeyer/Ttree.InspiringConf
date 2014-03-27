@@ -1,0 +1,107 @@
+#
+# Schema Person
+'Ttree.InspiringConf:Schema.Person':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        person:
+          label: 'Person'
+          position: 1
+  properties:
+    personName:
+      type: string
+      ui:
+        label: 'Name'
+        reloadIfChanged: TRUE
+        inspector:
+          group: person
+
+
+#
+# Schema Postal Address
+'Ttree.InspiringConf:Schema.PostalAddress':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        postalAddress:
+          label: 'Postal Address'
+          position: 2
+  properties:
+    postalAddressStreetAddress:
+      type: string
+      ui:
+        label: 'Street Address'
+        reloadIfChanged: TRUE
+        inspector:
+          group: postalAddress
+    postalAddressPostalCode:
+      type: string
+      ui:
+        label: 'Postal Code'
+        reloadIfChanged: TRUE
+        inspector:
+          group: postalAddress
+    postalAddressLocality:
+      type: string
+      ui:
+        label: 'Locality'
+        reloadIfChanged: TRUE
+        inspector:
+          group: postalAddress
+    postalAddressRegion:
+      type: string
+      ui:
+        label: 'Region'
+        reloadIfChanged: TRUE
+        inspector:
+          group: postalAddress
+    postalAddressCountry:
+      type: string
+      ui:
+        label: 'Country'
+        reloadIfChanged: TRUE
+        inspector:
+          group: postalAddress
+
+#
+# Person
+'Ttree.InspiringConf:Person':
+  superTypes:
+    - 'TYPO3.Neos:Document'
+    - 'Ttree.InspiringConf:Schema.PostalAddress'
+    - 'Ttree.InspiringConf:Schema.Person'
+  ui:
+    label: 'Person'
+    icon: 'icon-user'
+    group: inspiringCon
+  childNodes:
+    profile:
+      type: 'TYPO3.Neos:ContentCollection'
+
+#
+# Contact Address
+'Ttree.InspiringConf:ContactAddress':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+  nodeLabelGenerator: 'Ttree\InspiringConf\Domain\Model\PersonNodeLabelGenerator'
+  ui:
+    label: 'Contact Address'
+    group: 'inspiringCon'
+    inspector:
+      groups:
+        document:
+          label: 'Address'
+          position: 1
+  properties:
+    person:
+      type: reference
+      ui:
+        label: 'Person'
+        reloadIfChanged: true
+        inspector:
+          group: 'document'
+          editorOptions:
+            nodeTypes:
+              - 'Ttree.InspiringConf:Person'

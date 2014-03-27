@@ -1,0 +1,29 @@
+prototype(TYPO3.Neos:PrimaryContent).TtreeInspiringConfPerson {
+	condition = ${q(node).is('[instanceof Ttree.InspiringConf:Person]')}
+	type = 'Ttree.InspiringConf:Person'
+	@position = 'start'
+}
+
+prototype(Ttree.InspiringConf:Person) < prototype(TYPO3.TypoScript:Template) {
+	templatePath = 'resource://Ttree.InspiringConf/Private/Templates/NodeTypes/Person.html'
+
+	attributes = TYPO3.TypoScript:Attributes {
+		class = 'person-profile-page'
+		data-ttree-region = ${node.properties.postalAddressRegion}
+		data-ttree-country = ${node.properties.postalAddressCountry}
+	}
+
+	personName = ${node.properties.personName}
+	postalAddressStreetAddress = ${node.properties.postalAddressStreetAddress}
+	postalAddressCountry = ${node.properties.postalAddressCountry}
+	postalAddressPostalCode = ${node.properties.postalAddressPostalCode}
+	postalAddressLocality = ${node.properties.postalAddressLocality}
+	postalAddressRegion = ${node.properties.postalAddressRegion}
+
+	profile = TYPO3.Neos:ContentCollection {
+		nodePath = 'profile'
+	}
+}
+
+
+

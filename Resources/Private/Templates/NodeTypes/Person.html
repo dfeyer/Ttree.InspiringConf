@@ -1,0 +1,21 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+	<div itemscope itemtype="http://schema.org/Person">
+		<h1 itemprop="name">{personName}</h1>
+		<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<span itemprop="streetAddress">
+			  {postalAddressStreetAddress}
+			</span> |
+			<span itemprop="addressCountry">{postalAddressCountry}</span>,
+			<span itemprop="postalCode">{postalAddressPostalCode}</span>,
+			<span itemprop="addressLocality">{postalAddressLocality}</span>,
+			<span itemprop="addressRegion">{postalAddressRegion}</span>
+		</span>
+	</div>
+
+	<div class="customer-profile">
+		{profile -> f:format.raw()}
+	</div>
+</div>
+
+

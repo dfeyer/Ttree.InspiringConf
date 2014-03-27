@@ -1,0 +1,24 @@
+prototype(Ttree.InspiringConf:ContactAddress) >
+prototype(Ttree.InspiringConf:ContactAddress) < prototype(TYPO3.Neos:Content) {
+	templatePath = 'resource://Ttree.InspiringConf/Private/Templates/NodeTypes/ContactAddress.html'
+
+	person = ${node.properties.person}
+	hasPerson = ${node.properties.person ? TRUE : FALSE}
+
+	attributes = TYPO3.TypoScript:Attributes {
+		class = 'person-profile-inline'
+		style = 'background: #CCC; padding: 10px; margin-bottom: 10px;'
+		data-ttree-region = ${this.person.properties.postalAddressRegion}
+		data-ttree-country = ${this.person.properties.postalAddressCountry}
+	}
+
+	personName = ${this.person.properties.personName}
+	postalAddressStreetAddress = ${this.person.properties.postalAddressStreetAddress}
+	postalAddressCountry = ${this.person.properties.postalAddressCountry}
+	postalAddressPostalCode = ${this.person.properties.postalAddressPostalCode}
+	postalAddressLocality = ${this.person.properties.postalAddressLocality}
+	postalAddressRegion = ${this.person.properties.postalAddressRegion}
+}
+
+
+

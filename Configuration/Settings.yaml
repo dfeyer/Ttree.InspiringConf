@@ -1,0 +1,7 @@
+TYPO3:
+  Neos:
+    nodeTypes:
+      groups:
+        inspiringCon:
+          position: 'start'
+          label: 'Inspiring Conference Demonstration Node'

@@ -1,0 +1,28 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<div{attributes -> f:format.raw()}>
+	<f:if condition="{hasPerson}">
+		<f:then>
+			<div itemscope itemtype="http://schema.org/Person">
+				<div style="font-weight: bold;" itemprop="name">{personName}</div>
+				<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+					<div itemprop="streetAddress">
+						{postalAddressStreetAddress}
+					</div>
+					<div>
+						<span itemprop="addressCountry">{postalAddressCountry}</span> -
+						<span itemprop="postalCode">{postalAddressPostalCode}</span>
+						<span itemprop="addressLocality">{postalAddressLocality}</span>
+					</div>
+				</div>
+			</div>
+		</f:then>
+		<f:else>
+			<strong>
+				Please select a Person<br/>
+				in the Inspector
+			</strong>
+		</f:else>
+	</f:if>
+</div>
+
+
