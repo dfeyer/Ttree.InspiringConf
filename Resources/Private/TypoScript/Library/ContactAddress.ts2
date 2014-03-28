@@ -19,6 +19,3 @@ prototype(Ttree.InspiringConf:ContactAddress) < prototype(TYPO3.Neos:Content) {
 	postalAddressLocality = ${this.person.properties.postalAddressLocality}
 	postalAddressRegion = ${this.person.properties.postalAddressRegion}
 }
-
-
-
